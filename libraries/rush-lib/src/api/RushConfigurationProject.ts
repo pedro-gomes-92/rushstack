@@ -139,11 +139,11 @@ export class RushConfigurationProject {
   /**
    *
    * Indicates how this project should be installed by rush add.
-   * Default value is "true".
+   * Default value is "false".
    *
    * @beta
    */
-  public readonly installRemotely: boolean = true;
+  public readonly installRemotely: boolean = false;
 
   /**
    *
@@ -241,7 +241,7 @@ export class RushConfigurationProject {
     const {
       packageName,
       projectFolder: projectRelativeFolder,
-      installRemotely = true,
+      installRemotely = false,
       versionRange
     } = projectJson;
     this.rushConfiguration = rushConfiguration;

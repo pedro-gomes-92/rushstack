@@ -291,7 +291,7 @@
             "type": "string"
           },
           "installRemotely": {
-            "description": "If true, then this project will be installed by NPM registry. The default value is true.",
+            "description": "If true, then this project will be installed by NPM registry. The default value is false.",
             "type": "boolean"
           },
           "versionRange": {
