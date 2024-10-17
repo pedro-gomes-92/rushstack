@@ -1299,6 +1299,8 @@ export class RushConfigurationProject {
     get versionPolicy(): VersionPolicy | undefined;
     // @beta
     readonly versionPolicyName: string | undefined;
+    // @beta
+    readonly versionRange: string | undefined;
 }
 
 // @beta
