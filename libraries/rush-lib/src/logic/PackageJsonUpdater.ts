@@ -540,7 +540,6 @@ export class PackageJsonUpdater {
   }
 
   private async _getRemoteLatestVersionAsync(packageName: string): Promise<string> {
-    let selectedVersion: string | undefined;
     this._terminal.writeLine(`Querying NPM registry for latest version of "${packageName}"...`);
 
     let commandArgs: string[];
@@ -550,7 +549,7 @@ export class PackageJsonUpdater {
       commandArgs = ['view', `${packageName}@latest`, 'version'];
     }
 
-    selectedVersion = (
+    const selectedVersion: string = (
       await Utilities.executeCommandAndCaptureOutputAsync(
         this._rushConfiguration.packageManagerToolFilename,
         commandArgs,
