@@ -1,18 +1,18 @@
 // Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
 // See LICENSE in the project root for license information.
 
-import { type IPackageJson, FileConstants, FileSystem } from '@rushstack/node-core-library';
 import * as path from 'path';
 import * as semver from 'semver';
+import { type IPackageJson, FileSystem, FileConstants } from '@rushstack/node-core-library';
 
-import { DependencySpecifier, DependencySpecifierType } from '../logic/DependencySpecifier';
-import { RushConstants } from '../logic/RushConstants';
-import type { PackageJsonEditor } from './PackageJsonEditor';
-import { PackageNameParsers } from './PackageNameParsers';
 import type { RushConfiguration } from './RushConfiguration';
+import type { VersionPolicy, LockStepVersionPolicy } from './VersionPolicy';
+import type { PackageJsonEditor } from './PackageJsonEditor';
+import { RushConstants } from '../logic/RushConstants';
+import { PackageNameParsers } from './PackageNameParsers';
+import { DependencySpecifier, DependencySpecifierType } from '../logic/DependencySpecifier';
 import { SaveCallbackPackageJsonEditor } from './SaveCallbackPackageJsonEditor';
 import type { Subspace } from './Subspace';
-import type { LockStepVersionPolicy, VersionPolicy } from './VersionPolicy';
 
 /**
  * This represents the JSON data object for a project entry in the rush.json configuration file.

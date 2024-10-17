@@ -1,33 +1,33 @@
 // Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
 // See LICENSE in the project root for license information.
 
-import { Colorize, ConsoleTerminalProvider, Terminal, type ITerminalProvider } from '@rushstack/terminal';
-import type * as NpmCheck from 'npm-check';
 import * as semver from 'semver';
+import type * as NpmCheck from 'npm-check';
+import { ConsoleTerminalProvider, Terminal, type ITerminalProvider, Colorize } from '@rushstack/terminal';
 
-import { DependencyType, type PackageJsonDependency } from '../api/PackageJsonEditor';
 import type { RushConfiguration } from '../api/RushConfiguration';
-import type { RushConfigurationProject } from '../api/RushConfigurationProject';
-import type { RushGlobalFolder } from '../api/RushGlobalFolder';
-import type { Subspace } from '../api/Subspace';
-import { Utilities } from '../utilities/Utilities';
 import type { BaseInstallManager } from './base/BaseInstallManager';
 import type { IInstallManagerOptions } from './base/BaseInstallManagerTypes';
-import type { DependencyAnalyzer, IDependencyAnalysis } from './DependencyAnalyzer';
-import { InstallHelpers } from './installManager/InstallHelpers';
 import { InstallManagerFactory } from './InstallManagerFactory';
+import { VersionMismatchFinder } from './versionMismatch/VersionMismatchFinder';
+import { PurgeManager } from './PurgeManager';
+import { Utilities } from '../utilities/Utilities';
+import { DependencyType, type PackageJsonDependency } from '../api/PackageJsonEditor';
+import type { RushGlobalFolder } from '../api/RushGlobalFolder';
+import type { RushConfigurationProject } from '../api/RushConfigurationProject';
+import type { VersionMismatchFinderEntity } from './versionMismatch/VersionMismatchFinderEntity';
+import { VersionMismatchFinderProject } from './versionMismatch/VersionMismatchFinderProject';
+import { RushConstants } from './RushConstants';
+import { InstallHelpers } from './installManager/InstallHelpers';
+import type { DependencyAnalyzer, IDependencyAnalysis } from './DependencyAnalyzer';
 import {
-  SemVerStyle,
   type IPackageForRushAdd,
   type IPackageJsonUpdaterRushAddOptions,
   type IPackageJsonUpdaterRushBaseUpdateOptions,
-  type IPackageJsonUpdaterRushRemoveOptions
+  type IPackageJsonUpdaterRushRemoveOptions,
+  SemVerStyle
 } from './PackageJsonUpdaterTypes';
-import { PurgeManager } from './PurgeManager';
-import { RushConstants } from './RushConstants';
-import { VersionMismatchFinder } from './versionMismatch/VersionMismatchFinder';
-import type { VersionMismatchFinderEntity } from './versionMismatch/VersionMismatchFinderEntity';
-import { VersionMismatchFinderProject } from './versionMismatch/VersionMismatchFinderProject';
+import type { Subspace } from '../api/Subspace';
 
 /**
  * Options for adding a dependency to a particular project.
